@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student</title>
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.3.1/css/bootstrap.min.css}">
+    <script type="text/javascript" th:src="@{webjars/jquery/3.3.1/dist/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{webjars/bootstrap/4.3.1/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<section class="container-fluid">
+    <div class="row mt-3">
+        <div class="col-sm-12 col-md-6 mx-auto">
+            <a href="add" class="btn btn-sm btn-secondary">Add</a>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-sm-12 col-md-6 mx-auto">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Sl.</th>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="student: ${students}">
+                        <td th:text="${student.id}"></td>
+                        <td th:text="${student.name}"></td>
+                        <td th:text="${student.age}"></td>
+                        <td>
+                            <a class="btn btn-sm btn-warning" th:href="@{edit/{id}(id=${student.id})}">Edit</a>
+                            <a class="btn btn-sm btn-danger" th:href="@{delete/{id}(id=${student.id})}">Delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+</body>
+</html>

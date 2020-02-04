@@ -12,22 +12,21 @@ public class StudentService {
     @Autowired
     StudentRepository studentRepository;
 
-    public Student saveOrUpdate(Student student)
-    {
+    public Student saveOrUpdate(Student student) {
         Student newStudent = studentRepository.save(student);
         return newStudent;
     }
 
-    public Iterable<Student> getAllStudent(){
+    public Iterable<Student> getAllStudent() {
         return studentRepository.findAll();
     }
 
-    public Optional<?> findStudent(Long id)
-    {
-        return studentRepository.findById(id);
+    public Student findStudent(Long id) {
+        Student student = studentRepository.findById(id).get();
+        return student;
     }
 
-    public void deleteStudent(Long id){
+    public void deleteStudent(Long id) {
         studentRepository.deleteById(id);
     }
 }

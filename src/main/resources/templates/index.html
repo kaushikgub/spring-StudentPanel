@@ -26,8 +26,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr th:each="student: ${students}">
-                        <td th:text="${student.id}"></td>
+                    <tr th:each="student, key: ${students}">
+                        <td th:text="${key.index + 1}"></td>
                         <td th:text="${student.name}"></td>
                         <td th:text="${student.age}"></td>
                         <td>
